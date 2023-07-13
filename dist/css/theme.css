@@ -1,0 +1,15 @@
+.user-panel.active {
+    background: #1e282c none repeat scroll 0 0;
+    border-color: #3c8dbc;
+    color: #fff;
+}
+
+.user-panel {
+    border-left: 3px solid transparent;
+}
+
+.user-panel:hover {
+    background: #1e282c none repeat scroll 0 0;
+    border-color: #3c8dbc;
+    color: #fff;
+}

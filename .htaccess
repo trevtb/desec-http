@@ -1,0 +1,96 @@
+RewriteEngine on
+
+ErrorDocument 404 /404.php
+
+# General
+RewriteRule "^poll-online$"   "/ajax/general.php?poll_online=1" [L]
+RewriteRule "^login-start$"   "/tools/functions.php" [L]
+RewriteRule "^login-fail$"    "/index.php?fail=1"    [L]
+RewriteRule "^logout$"    "/tools/functions.php?logout=1"    [L]
+RewriteRule "^home$"  "/dashboard.php"    [L]
+RewriteRule "^home/$"  "/dashboard.php"    [L]
+
+# Users
+RewriteRule "^usermanager$" "/usermanager.php"  [L]
+RewriteRule "^usermanager-datasource$"       "/ajax/users.php?getuserdata=1"     [L]
+RewriteRule "^usermanager-change-data$"        "/ajax/users.php?changeuserdata=1"     [L]
+RewriteRule "^usermanager-change-password$"     "/ajax/users.php?changeuserpwd=1"      [L]
+RewriteRule "^usermanager-delete$"         "/ajax/users.php?deluser=1"        [L]
+RewriteRule "^usermanager-add$"         "/ajax/users.php?adduser=1"        [L]
+RewriteRule "^user-exists/$"        "/ajax/users.php?user_exists=1&user="        [NC]
+RewriteRule "^user-exists/([^/]+)$"        "/ajax/users.php?user_exists=1&user=$1"        [NC]
+RewriteRule "^user-by-id$"        "/ajax/users.php?getuserbyid=1"        [L]
+RewriteRule "^email-exists/$"        "/ajax/users.php?email_exists=1&email="     [NC]
+RewriteRule "^email-exists/([^/]+)$"        "/ajax/users.php?email_exists=1&email=$1"     [NC]
+
+# Profile
+RewriteRule "^profile$" "/profile.php"  [L]
+RewriteRule "^profile-data-update-success$"     "/profile.php?toggle=datasuccess"       [L]
+RewriteRule "^profile-data-update$"     "/tools/functions.php"     [L]
+RewriteRule "^profile-password-update-success$"     "/profile.php?toggle=passwordsuccess"       [L]
+RewriteRule "^profile-password-update$"     "/tools/functions.php"     [L]
+
+
+# Widgets
+RewriteRule "^widget-setstatus$"    "/ajax/widgets.php?setwidgetstatus=1"    [L]
+RewriteRule "^widget-users$"     "/widgets/users.php"     [L]
+RewriteRule "^widget-camera$"     "/widgets/cameras.php"     [L]
+RewriteRule "^camwidget-polling-mode$"    "/ajax/widgets.php?setcamwidgetrefmode=poll"    [L]
+RewriteRule "^camwidget-live-mode$"    "/ajax/widgets.php?setcamwidgetrefmode=live"    [L]
+RewriteRule "^camwidget-set-camid$"    "/ajax/widgets.php?setcamwidgetcamid=1"    [L]
+
+
+# Cameras
+RewriteRule "^cammanager$"     "/cammanager.php"   [L]
+RewriteRule "^cammanager-datasource$"       "/ajax/cameras.php?getcamdata=1"     [L]
+RewriteRule "^cammanager-datasource-light$"       "/ajax/cameras.php?getcamdata=2"     [L]
+RewriteRule "^cammanager-add$"         "/ajax/cameras.php?addcam=1"        [L]
+RewriteRule "^cammanager-delete$"         "/ajax/cameras.php?delcam=1"        [L]
+RewriteRule "^cammanager-edit$"         "/ajax/cameras.php?changecam=1"        [L]
+RewriteRule "^camname-exists/$"  "/ajax/cameras.php?camname_exists=1&camname="  [NC]
+RewriteRule "^camname-exists/([^/]+)$"  "/ajax/cameras.php?camname_exists=1&camname=$1"  [NC]
+RewriteRule "^cam-by-id$"        "/ajax/cameras.php?getcambyid=1"        [L]
+RewriteRule "^cam-is-created/([^/]+)$"  "/ajax/cameras.php?camiscreated=$1"  [L]
+RewriteRule "^check-creation$"  "/ajax/cameras.php?checkcreation=1"   [L]
+RewriteRule "^cam/monitor$"     "/cammonitor.php"   [L]
+RewriteRule "^cam/monitor/ex/([^/]+)$"     "/cammonitor.php?addaction=$1"   [L]
+RewriteRule "^cam/login$"   "/ajax/cameras.php?camlogin=1"    [L]
+RewriteRule "^get-camlogin$"    "/ajax/cameras.php?getcamlogin=1"   [L]
+RewriteRule "^camframe-thumb/([^/]+)/([^/]+)$"   "/ajax/cameras.php?getframe=1&id=$1&size=thumb"    [NC]
+RewriteRule "^camframe-big/([^/]+)/([^/]+)$"   "/ajax/cameras.php?getframe=1&id=$1&size=big"    [NC]
+RewriteRule "^cam-polling-mode$"    "/ajax/cameras.php?setcamrefmode=poll"    [L]
+RewriteRule "^cam-live-mode$"    "/ajax/cameras.php?setcamrefmode=live"    [L]
+RewriteRule "^camrefmode$"    "/ajax/cameras.php?getcamrefmode=1"    [L]
+RewriteRule "^testcamcon$"  "/ajax/cameras.php?testcamconnection=1"   [L]
+RewriteRule "^livemon-addcam$"  "/ajax/cameras.php?lmaddcam=1"    [L]
+RewriteRule "^livemon-delcam$"  "/ajax/cameras.php?lmdelcam=1"    [L]
+RewriteRule "^cams-by-gid$" "/ajax/cameras.php?camsbygid=1" [L]
+RewriteRule "^camimgmanager$"   "/camimgmanager.php"    [L]
+RewriteRule "^camimgmanager-folderlist$"    "/ajax/imgmanager.php?getfolderlist=1"  [L]
+RewriteRule "^camimgmanager-imglist$"   "/ajax/imgmanager.php?getimglist=1" [L]
+RewriteRule "^camimgmanager-del-folders$"   "/ajax/imgmanager.php?delfolders=1" [L]
+RewriteRule "^camimgmanager-del-folder$"    "/ajax/imgmanager.php?delfolder=1" [L]
+RewriteRule "^camimgmanager-del-image$"    "/ajax/imgmanager.php?delimage=1" [L]
+RewriteRule "^camimgmanager-del-images$"    "/ajax/imgmanager.php?delimages=1" [L]
+RewriteRule "^camimgmanager-get-zippedfiles$"   "/ajax/imgmanager.php?getzippedfiles=1" [L]
+RewriteRule "^camimgmanager-get-zipfolder$" "/ajax/imgmanager.php?getfolderzip=1" [L]
+RewriteRule "^camimgmanager-get-zipfolders$"    "/ajax/imgmanager.php?getfolderszip=1" [L]
+RewriteRule "^imgzip/([^/]+)$"  "/ajax/imgmanager.php?getdelzip=$1" [NC]
+RewriteRule "^camimgmanager-detail/([^/]+)$"    "/imgmanagerdetail.php?name=$1" [NC]
+
+# Groups
+RewriteRule "^groupmanager-datasource$"       "/ajax/camgroups.php?getgroupdata=1"     [L]
+RewriteRule "^groupmanager-datasource-light$"       "/ajax/camgroups.php?getgroupdata=2"     [L]
+RewriteRule "^groupmanager-add$"         "/ajax/camgroups.php?addgroup=1"        [L]
+RewriteRule "^groupname-exists/([^/]+)$"  "/ajax/camgroups.php?groupname_exists=1&groupname=$1"  [NC]
+RewriteRule "^groupname-exists/$"  "/ajax/camgroups.php?groupname_exists=1&groupname="  [NC]
+RewriteRule "^groupmanager-delete$"         "/ajax/camgroups.php?delgroup=1"        [L]
+RewriteRule "^groupmanager-edit$"         "/ajax/camgroups.php?changegroup=1"        [L]
+RewriteRule "^group-by-id$"        "/ajax/camgroups.php?getgroupbyid=1"        [L]
+RewriteRule "^groupmembers-by-gid$"        "/ajax/camgroups.php?getgroupmembers-by-gid=1"        [L]
+RewriteRule "^groupmembers-by-cid$"        "/ajax/camgroups.php?getgroupmembers-by-cid=1"        [L]
+RewriteRule "^livemon-addgroup$"  "/ajax/camgroups.php?lmaddgroup=1"    [L]
+RewriteRule "^livemon-delgroup$"  "/ajax/camgroups.php?lmdelgroup=1"    [L]
+
+# Alarms
+RewriteRule "^alarmoverview$" "/alarms.php"  [L]

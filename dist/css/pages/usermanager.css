@@ -1,0 +1,30 @@
+.usertabaction {
+    font-size: 18px;
+}
+
+.actiondel {
+    color: #dd4b39;
+}
+
+.actiondel:hover {
+    color: #dd4b39;
+    opacity: 0.65;
+}
+
+.actionpwd {
+    color: #00a65a;
+}
+
+.actionpwd:hover {
+    color: #00a65a;
+    opacity: 0.65;
+}
+
+.actiondata {
+    color: #3c8dbc;
+}
+
+.actiondata:hover {
+    color: #3c8dbc;
+    opacity: 0.65;
+}
